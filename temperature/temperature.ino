@@ -92,14 +92,8 @@ void send(float temp, float hum) {
     url += "?temperature=" + String(temp);
     url += "&";
     url += "humidity=" + String(hum);
-
-Serial.println(url);
     
     if (http.begin(client, url)) {      
-      
-//      String data = "{\"temperature\":" + String(temp) + ", \"humidity\":" + String(hum) + "}";
-//      Serial.println(data);
-//      http.addHeader("Content-Length", String(data.length()));
       int start=millis();
       int statusCode = http.GET();
       int end =millis();
